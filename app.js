@@ -22,6 +22,7 @@ require('./services/passportService')
 var app = express();
 
 
+
 const swaggerDocument = yaml.load(fs.readFileSync(path.resolve(__dirname, './swagger.yml'), 'utf8'));
 
 
