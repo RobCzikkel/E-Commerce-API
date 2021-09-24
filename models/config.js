@@ -6,8 +6,9 @@ require('dotenv').config()
 const isProduction = process.env.NODE_ENV === 'production';
 
 const connectionString = `postgresql://${process.env.DB_ADMIN}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}:${process.env.DB_PORT}/${process.env.DB_DATABASE}`
+const herokuString = 'postgres://tdszxbhxyqxvyn:949af96b7e7ed3d62fa9fa11f849e2d36efc7685bdcce963a92de93a05f8b4cc@ec2-54-145-110-118.compute-1.amazonaws.com:5432/dborv60r1692cf'
 const pool = new Pool({
-	connectionString:  connectionString, //Heroku addon will provide with a string called DATABASE_URL
+	connectionString:  isProduction ? herokuString : connectionString, //Heroku addon will provide with a string called DATABASE_URL
 });
 // const config = {
 //     user: process.env.DB_ADMIN,
