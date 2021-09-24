@@ -51,5 +51,9 @@ CREATE TABLE order_item (
     modified TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- INSERT INTO users(username, email, password) VALUES('Luu Bega', 'luu@bega.com', 'asdf1234');
--- INSERT INTO products(name, description) VALUES('jordans', 'latest pair of jordans');
+INSERT INTO users(username, email, password) VALUES('Luu Bega', 'luu@bega.com', 'asdf1234');
+INSERT INTO products(name, description) VALUES('jordans', 'latest pair of jordans');
+INSERT INTO cart(user_id) VALUES(1);
+INSERT INTO cart_item(quantity, cart_id, prod_id) VALUES(2, 1, 1);
+INSERT INTO order_detail(user_id, total) VALUES(1, 200);
+INSERT INTO order_detail(order_id, prod_id, quantity, price) VALUES(1,1,2,200);
