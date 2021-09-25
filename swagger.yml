@@ -55,6 +55,12 @@ paths:
       description: "Get all products"
       produces: 
         - "application/json"
+      parameters:
+        - name: category
+          description: Category name
+          in: query
+          required: true
+          type: string
       responses:
         200:
           description: 200 Success

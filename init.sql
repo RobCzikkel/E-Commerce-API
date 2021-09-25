@@ -20,7 +20,7 @@ CREATE TABLE products (
 
 CREATE TABLE cart ( 
     id SERIAL PRIMARY KEY,
-    user_id INTEGER REFERENCES users(id) NOT NULL ON DELETE CASCADE,
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE NOT NULL,
     created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     modified TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );   
@@ -28,8 +28,8 @@ CREATE TABLE cart (
 CREATE TABLE cart_item (
     id SERIAL PRIMARY KEY,
     quantity INT DEFAULT 1,
-    cart_id INT REFERENCES cart(id) NOT NULL ON DELETE CASCADE,
-    prod_id INT REFERENCES products(id) NOT NULL ON DELETE CASCADE,
+    cart_id INT REFERENCES cart(id)  ON DELETE CASCADE NOT NULL,
+    prod_id INT REFERENCES products(id)  ON DELETE CASCADE NOT NULL,
     created TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     modified TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
@@ -57,4 +57,4 @@ INSERT INTO products(name, description) VALUES('jordans', 'latest pair of jordan
 INSERT INTO cart(user_id) VALUES(1);
 INSERT INTO cart_item(quantity, cart_id, prod_id) VALUES(2, 1, 1);
 INSERT INTO order_detail(user_id, total) VALUES(1, 200);
-INSERT INTO order_detail(order_id, prod_id, quantity, price) VALUES(1,1,2,200);
+INSERT INTO order_item(order_id, prod_id, quantity, price) VALUES(1,1,2,200);
