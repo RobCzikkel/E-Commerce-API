@@ -3,12 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-const session = require('express-session');
+const session = require('express-session');  // session is required if we want authentication
 const passport = require('passport');
 const cors = require('cors');
 
-const swaggerUi = require('swagger-ui-express');
-const yaml = require('js-yaml');
+const swaggerUi = require('swagger-ui-express');  // for loading swagger UI
+const yaml = require('js-yaml');    // for loading yaml files
 const fs = require('fs');
 
 // Routes
@@ -39,7 +39,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors())
 app.use(session({ secret: 'anything' }));  // needed for Passport.js
-app.use(passport.initialize());
+app.use(passport.initialize());            // passport functions
 app.use(passport.session());
 
 

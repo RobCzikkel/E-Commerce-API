@@ -1,9 +1,10 @@
 const { pool } = require('./config');
 
-const options = {capSQL: true};
-const pgp = require('pg-promise')(options);
+const options = {capSQL: true};  
+const pgp = require('pg-promise')(options);    //pgp is helpful for creating query strings 
 
 
+// model class for Users
 module.exports = class UserModel {
 
     async getUsers() {

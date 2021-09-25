@@ -5,6 +5,7 @@ const pgp = require('pg-promise')(options);
 
 module.exports = class CartItems {
 
+    // this will load all items related to a cart
     async getItems(id) {
         try {
             const statement = `

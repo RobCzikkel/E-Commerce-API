@@ -1,7 +1,7 @@
 const { response } = require('express');
 const UserInstance = require('../models/users');
 const UserModel = new UserInstance();
-const createError = require('http-errors');
+const createError = require('http-errors');  // import it for throwing errors in validator function
 
 module.exports = {
 
@@ -30,6 +30,7 @@ module.exports = {
         return response;
     },
 
+    // Function to validate user
     login: async(data) => {
         const { username, password } = data;
         try {

@@ -1,3 +1,6 @@
+-- to deploy on Heroku we use the following commands
+-- cat init.sql | heroku pg:psql -a name-of-the-app
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(10) UNIQUE NOT NULL,
